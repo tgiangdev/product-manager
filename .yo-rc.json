@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.giangnt.productmanager",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "monolith",
+    "baseName": "product_manager",
+    "packageName": "com.giangnt.productmanager",
+    "packageFolder": "com/giangnt/productmanager",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NGNiY2U0OTRmODk4MDY4YmEwODAzMDI1OGRjY2Q4MDY1OWMzNjQ1NmEzYTllZTNhNDYwZDU3ZjdmM2MwYjhiNGU0OTlkNDRkNmY1YTM2ZDg3MTg3OTY1ZDc1MTBkZGVkN2M2MGJiOTk0ZGRlYTAxZmFjM2RkZTQyNjIxNjRmNDk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1596120855804,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "vi"],
+    "blueprints": []
+  }
+}
