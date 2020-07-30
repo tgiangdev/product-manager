@@ -1,0 +1,15 @@
+entity ProductCategory {
+    code String required maxlength(20) unique,
+    name String required maxlength(100) unique,
+}
+entity Product {
+    code String required maxlength(20) unique,
+    name String required maxlength(100) unique,
+}
+relationship ManyToOne {
+  Product{productCategory(name) required} to ProductCategory
+}
+relationship OneToOne {
+  ProductCategory{parent(name)} to ProductCategory,
+}
+
