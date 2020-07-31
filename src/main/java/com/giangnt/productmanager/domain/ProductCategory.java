@@ -32,6 +32,10 @@ public class ProductCategory implements Serializable {
     @Column(name = "name", length = 100, nullable = false, unique = true)
     private String name;
 
+    @Size(max = 2000)
+    @Column(name = "description", length = 2000)
+    private String description;
+
     @OneToOne
     @JoinColumn(unique = true)
     private ProductCategory parent;
@@ -71,6 +75,19 @@ public class ProductCategory implements Serializable {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public ProductCategory description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public ProductCategory getParent() {
         return parent;
     }
@@ -108,6 +125,7 @@ public class ProductCategory implements Serializable {
             "id=" + getId() +
             ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
+            ", description='" + getDescription() + "'" +
             "}";
     }
 }

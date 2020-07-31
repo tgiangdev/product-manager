@@ -20,6 +20,14 @@
         "unique"
       ],
       "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "2000"
     }
   ],
   "relationships": [
