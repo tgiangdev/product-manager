@@ -21,6 +21,7 @@ export class ProductCategoryUpdateComponent implements OnInit {
     id: [],
     code: [null, [Validators.required, Validators.maxLength(20)]],
     name: [null, [Validators.required, Validators.maxLength(100)]],
+    description: [null, [Validators.maxLength(2000)]],
     parent: [],
   });
 
@@ -63,6 +64,7 @@ export class ProductCategoryUpdateComponent implements OnInit {
       id: productCategory.id,
       code: productCategory.code,
       name: productCategory.name,
+      description: productCategory.description,
       parent: productCategory.parent,
     });
   }
@@ -87,6 +89,7 @@ export class ProductCategoryUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       code: this.editForm.get(['code'])!.value,
       name: this.editForm.get(['name'])!.value,
+      description: this.editForm.get(['description'])!.value,
       parent: this.editForm.get(['parent'])!.value,
     };
   }

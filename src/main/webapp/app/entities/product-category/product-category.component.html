@@ -25,6 +25,7 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="productManagerApp.productCategory.code">Code</span></th>
                     <th scope="col" ><span jhiTranslate="productManagerApp.productCategory.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="productManagerApp.productCategory.description">Description</span></th>
                     <th scope="col" ><span jhiTranslate="productManagerApp.productCategory.parent">Parent</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -34,6 +35,7 @@
                     <td><a [routerLink]="['/product-category', productCategory.id, 'view']">{{ productCategory.id }}</a></td>
                     <td>{{ productCategory.code }}</td>
                     <td>{{ productCategory.name }}</td>
+                    <td>{{ productCategory.description }}</td>
                     <td>
                         <div *ngIf="productCategory.parent">
                             <a [routerLink]="['/product-category', productCategory.parent?.id, 'view']" >{{ productCategory.parent?.name }}</a>

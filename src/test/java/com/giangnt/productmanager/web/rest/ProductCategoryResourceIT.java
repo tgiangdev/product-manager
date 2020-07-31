@@ -35,6 +35,9 @@ public class ProductCategoryResourceIT {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
     @Autowired
     private ProductCategoryRepository productCategoryRepository;
 
@@ -55,7 +58,8 @@ public class ProductCategoryResourceIT {
     public static ProductCategory createEntity(EntityManager em) {
         ProductCategory productCategory = new ProductCategory()
             .code(DEFAULT_CODE)
-            .name(DEFAULT_NAME);
+            .name(DEFAULT_NAME)
+            .description(DEFAULT_DESCRIPTION);
         return productCategory;
     }
     /**
@@ -67,7 +71,8 @@ public class ProductCategoryResourceIT {
     public static ProductCategory createUpdatedEntity(EntityManager em) {
         ProductCategory productCategory = new ProductCategory()
             .code(UPDATED_CODE)
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .description(UPDATED_DESCRIPTION);
         return productCategory;
     }
 
@@ -92,6 +97,7 @@ public class ProductCategoryResourceIT {
         ProductCategory testProductCategory = productCategoryList.get(productCategoryList.size() - 1);
         assertThat(testProductCategory.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testProductCategory.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testProductCategory.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
     }
 
     @Test
@@ -164,7 +170,8 @@ public class ProductCategoryResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(productCategory.getId().intValue())))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)));
     }
     
     @Test
@@ -179,7 +186,8 @@ public class ProductCategoryResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(productCategory.getId().intValue()))
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION));
     }
     @Test
     @Transactional
@@ -203,7 +211,8 @@ public class ProductCategoryResourceIT {
         em.detach(updatedProductCategory);
         updatedProductCategory
             .code(UPDATED_CODE)
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .description(UPDATED_DESCRIPTION);
 
         restProductCategoryMockMvc.perform(put("/api/product-categories")
             .contentType(MediaType.APPLICATION_JSON)
@@ -216,6 +225,7 @@ public class ProductCategoryResourceIT {
         ProductCategory testProductCategory = productCategoryList.get(productCategoryList.size() - 1);
         assertThat(testProductCategory.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testProductCategory.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testProductCategory.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
     }
 
     @Test
